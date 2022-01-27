@@ -1,0 +1,199 @@
+body {
+    margin: 0;
+    /* reference color variables defined below */
+    background-color: var(--bg-color);
+}
+h1 {
+    color: var(--heading-color);
+    font: 50pt "Times New Roman";
+}
+h2 {
+    color: (--heading-color);
+    font: 20pt "Courier New", monospace;
+}
+a {
+    color: var(--primary-color);
+}
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: var(--navbar-color);
+    
+    display: flex;
+    justify-content: space-around;
+    transition: 0.1s;
+
+    font: italic 20pt Geneva, "Century Gothic", Arial, sans-serif;
+    text-align: center;
+    color: var(--nav-item);
+}
+.selectedpage {
+    background-color: var(--selected-item);
+}
+.selectedpage:hover {
+    background-color: var(--selected-item);
+}
+.navitem {
+    display: inline;
+    background-color: rgb(0, 0 , 0);
+    width: 20%;
+    min-width: 150px;
+}
+.navitem .navhead {
+    padding: 15px;
+}
+.dropdown-content {
+    background-color: inherit;
+    display: none;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    width: 20%;
+}
+.navitem a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: rgb(0, 0, 200);
+    color: white;
+}
+.navitem:hover {
+    background-color: rgb(150, 150, 150);
+}
+.navitem:hover .dropdown-content {
+    display: block;
+}
+
+/* code below for toggle switch */
+/* flex container for switch */
+.switch-container {
+    display: flex;
+    align-items: center;
+}
+/* slider box */
+.switch {
+    position: relative;
+    display: inline-block;
+    top: 5px;
+    left: 5px;
+    width: 60px;
+    height: 34px;
+}
+/* hide default checkbox */
+.switch input {
+    display: none;
+}
+.slider {
+    background-color: rgb(0, 238, 255);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /* enables transition to work in Chrome */
+    -webkit-transition: 0.4s; 
+    transition: 0.4s;
+    border-radius: 34px;
+    z-index: -1;
+}
+.slider:before {
+    position: absolute;
+    content: ""; 
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: rgb(238, 255, 0);
+    -webkit-transition: 0.4s; /* enables transition to work in Chrome */
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: rgb(19, 6, 95);
+}
+input:focus + .slider {
+    box-shadow: 1px 1px 4px rgb(10, 10 , 10);
+}
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px); /* enables transform to work in Chrome */
+    -ms-transform: translateX(26px);
+    transform: translateX(26px); /* defines default transform */
+}
+
+/* code below sets up css variables for dark/light mode */
+/* defaults/light mode */
+:root {
+    --primary-color: #302ae6;
+    --secondary-color: #536390;
+    --font-color: #424242;
+    --bg-color: #fff;
+    --heading-color: rgb(44, 44, 39);
+    --navbar-color: rgb(40, 40, 40);
+    --selected-item: red;
+    --nav-item: #fff;
+    --gridbox-border: red;
+    --gridbox-color: orange;
+    --griditem-border: white;
+    --griditem-color: darkorange;
+}
+/* dark mode class to be added to elements */
+.darkmode {
+    --primary-color: #9a97f3;
+    --secondary-color: #818cab;
+    --font-color: #e1e1ff;
+    --bg-color: #161625;
+    --heading-color: rgb(44, 44, 39);
+    --navbar-color: rgb(40, 40, 40);
+    --selected-item: blue;
+    --nav-item: #fff;
+    --gridbox-border: snow;
+    --gridbox-color: rgb(62, 146, 204);
+    --griditem-border: rgb(128, 126, 194);
+    --griditem-color: rgb(5, 40, 73);
+}
+
+
+.banner {
+    background-color: #afaaf5;
+    text-align: center;
+    font-size: 30px;
+    color: rgb(12, 10, 10);
+    height: 200px;
+    padding: 50px;
+    z-index: -1;
+    line-height: 100%;
+}
+
+/* styles for gallery grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    width: 80%;
+    border: 2px solid var(--gridbox-border);
+    border-radius: 25px;
+    margin: auto;
+    padding: 25px;
+    background-color: var(--gridbox-color)
+}
+.griditem {
+    width: 90%;
+    border-radius: 25px;
+    border: 2px solid var(--griditem-border);
+    margin: auto;
+    padding: 25px;
+    min-height: 400px;
+    background-color: var(--griditem-color);
+    box-shadow: -2px 2px 2px  rgb(53, 53, 53);
+    color: var(--font-color);
+}
+.gridimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
