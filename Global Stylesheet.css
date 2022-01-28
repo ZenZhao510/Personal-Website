@@ -8,11 +8,11 @@ h1 {
     font: 50pt "Times New Roman";
 }
 h2 {
-    color: (--heading-color);
+    color: var(--heading-color);
     font: 20pt "Courier New", monospace;
 }
 a {
-    color: var(--primary-color);
+    color: var(--anchor-color);
 }
 
 #navbar {
@@ -127,8 +127,7 @@ input:checked + .slider:before {
 /* code below sets up css variables for dark/light mode */
 /* defaults/light mode */
 :root {
-    --primary-color: #302ae6;
-    --secondary-color: #536390;
+    --anchor-color: #302ae6;
     --font-color: #424242;
     --bg-color: #fff;
     --heading-color: rgb(44, 44, 39);
@@ -142,7 +141,7 @@ input:checked + .slider:before {
 }
 /* dark mode class to be added to elements */
 .darkmode {
-    --primary-color: #9a97f3;
+    --anchor-color: #9a97f3;
     --secondary-color: #818cab;
     --font-color: #e1e1ff;
     --bg-color: #161625;
@@ -158,10 +157,10 @@ input:checked + .slider:before {
 
 
 .banner {
-    background-color: #afaaf5;
+    background-image: url("Banner.jpg");
+    background-color: rgb(240, 240, 240);
+    background-blend-mode: multiply;
     text-align: center;
-    font-size: 30px;
-    color: rgb(12, 10, 10);
     height: 200px;
     padding: 50px;
     z-index: -1;
@@ -172,28 +171,33 @@ input:checked + .slider:before {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 1rem;
     width: 80%;
     border: 2px solid var(--gridbox-border);
     border-radius: 25px;
     margin: auto;
     padding: 25px;
-    background-color: var(--gridbox-color)
+    background-color: var(--gridbox-color);
+    min-width: 60vw;
+
 }
 .griditem {
     width: 90%;
-    border-radius: 25px;
+    border-radius: 5%;
     border: 2px solid var(--griditem-border);
     margin: auto;
     padding: 25px;
-    min-height: 400px;
+    min-height: 30vh;
+    min-width: 20vw;
     background-color: var(--griditem-color);
     box-shadow: -2px 2px 2px  rgb(53, 53, 53);
     color: var(--font-color);
+    font: 13pt "Courier New";
 }
 .gridimg {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
